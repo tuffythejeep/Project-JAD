@@ -1,35 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Foodie by JAD</title>
-    <link rel="stylesheet" href="">
-    <link rel="stylesheet" href="./assets/css/style.css">
-</head>
-<body>
-<div class="ui container">
-        <h1 class="ui header">Foodie by JAD</h1>
-        
-        <!-- Cuisine Selection -->
-        <div class="ui menu">
-            <a class="item" id="italian">Italian</a>
-            <a class="item" id="mexican">Mexican</a>
-            <a class="item" id="indian">Indian</a>
-            <a class="item" id="japanese">Japanese</a>
+    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <div class="ui container">
+      <h1 class="ui header">Foodie by JAD</h1>
+
+      <!-- Cuisine Selection -->
+      <div class="ui menu">
+        <a class="item" id="italian">Italian</a>
+        <a class="item" id="mexican">Mexican</a>
+        <a class="item" id="indian">Indian</a>
+        <a class="item" id="japanese">Japanese</a>
+      </div>
+
+      <!-- Recipe Cards -->
+      <div class="ui cards" id="recipeCards"></div>
+
+      <!-- Weekly Calendar -->
+      <div class="ui segment">
+        <h2 class="ui header">Weekly Meal Planner</h2>
+        <div id="calendar" class="ui grid">
+          <!-- Days of the week will be dynamically added here -->
         </div>
+      </div>
 
- <!-- Recipe Cards -->
-        <div class="ui cards" id="recipeCards"></div>
+      <!-- Buttons for Fun Food Fact and Food of the Day -->
+      <div class="ui buttons">
+        <button class="ui button" id="foodBtn">Get Food of the Day</button>
+        <button class="ui button" id="factBtn">Get Fun Food Fact</button>
+      </div>
+    </div>
 
-        <!-- Weekly Calendar -->
-        <div class="ui segment">
-            <h2 class="ui header">Weekly Meal Planner</h2>
-            <div id="calendar" class="ui grid">
-                <!-- Days of the week will be dynamically added here -->
-            </div>
-        </div>
+    <!-- Modal -->
+    <div class="ui modal" id="modal">
+      <i class="close icon"></i>
+      <div class="header" id="modalHeader"></div>
+      <div class="content" id="modalContent"></div>
+    </div>
 
-
-</body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
 </html>
