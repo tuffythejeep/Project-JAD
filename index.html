@@ -1,53 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foodie by JAD</title>
-    <link rel="stylesheet" href="NEED CDN LINK" />
-    <!-- NEED CDN LINK ABOVE -->
-    <link rel="stylesheet" href="./assets/css/style.css" />
-  </head>
-  <body>
-    <div class="ui container">
-      <h1 class="ui header">Foodie by JAD</h1>
 
-      <!-- Cuisine Selection -->
-      <div class="ui menu">
-        <a class="item" id="italian">Italian</a>
-        <a class="item" id="mexican">Mexican</a>
-        <a class="item" id="indian">Indian</a>
-        <a class="item" id="japanese">Japanese</a>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foodie by JAD</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.css">
 
-      <!-- Recipe Cards -->
-      <div class="ui cards" id="recipeCards"></div>
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
 
-      <!-- Weekly Calendar -->
-      <div class="ui segment">
-        <h2 class="ui header">Weekly Meal Planner</h2>
-        <div id="calendar" class="ui grid">
-          <!-- Days of the week will be dynamically added here -->
-        </div>
-      </div>
+<body>
+  <div class="ui container">
+    <h1 class="ui header">Foodie by JAD</h1>
 
-      <!-- Buttons for Fun Food Fact and Food of the Day -->
-      <div class="ui buttons">
-        <button class="ui button" id="foodBtn">Get Food of the Day</button>
-        <button class="ui button" id="factBtn">Get Fun Food Fact</button>
+
+    <div class="ui menu">
+      <a class="item" id="italian">Italian</a>
+      <a class="item" id="mexican">Mexican</a>
+      <a class="item" id="indian">Indian</a>
+      <a class="item" id="japanese">Japanese</a>
+    </div>
+
+
+    <div class="ui cards" id="recipeCards"></div>
+
+
+    <div class="ui segment">
+      <h2 class="ui header">Weekly Meal Planner</h2>
+      <div id="calendar" class="ui grid">
+
       </div>
     </div>
 
-    <!-- Modal -->
-    <div class="ui modal" id="modal">
-      <i class="close icon"></i>
-      <div class="header" id="modalHeader"></div>
-      <div class="content" id="modalContent"></div>
+    <div class="ui buttons">
+      <button class="ui button" id="foodBtn">Get Food of the Day</button>
+      <button class="ui button" id="factBtn">Get Fun Food Fact</button>
     </div>
+  </div>
+  <div class="ui modal" id="modal">
+    <i class="close icon"></i>
+    <div class="header" id="modalHeader"></div>
+    <div class="content" id="modalContent"></div>
+  </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="NEED CDN LINK" />
-    <!-- NEED CDN LINK ABOVE -->
-    <script src="./assets/js/script.js"></script>
-  </body>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="NEED CDN LINK" />
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.js"></script>
+  <script src="./assets/js/script.js"></script>
+</body>
+
 </html>
