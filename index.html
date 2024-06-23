@@ -3,6 +3,10 @@
 
 <head>
   <meta charset="UTF-8" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Foodie by JAD</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.css">
@@ -12,8 +16,9 @@
 
 <body>
   <div class="ui container">
-    <h1 class="ui header">Foodie by JAD</h1>
-
+    <div class="header-cell">
+      <h1 class="header">Foodie by <span id="jad">JAD</span></h1>
+    </div>
 
     <div class="ui menu">
       <a class="item" id="italian">Italian</a>
@@ -21,34 +26,52 @@
       <a class="item" id="indian">Indian</a>
       <a class="item" id="japanese">Japanese</a>
     </div>
-
-
     <div class="ui cards" id="recipeCards"></div>
-
-
     <div class="ui segment">
       <h2 class="ui header">Weekly Meal Planner</h2>
       <div id="calendar" class="ui grid">
-
       </div>
     </div>
-
     <div class="ui buttons">
       <button class="ui button" id="foodBtn">Get Food of the Day</button>
       <button class="ui button" id="factBtn">Get Fun Food Fact</button>
     </div>
   </div>
-  
   <div class="ui modal" id="modal">
     <i class="close icon"></i>
     <div class="header" id="modalHeader"></div>
     <div class="content" id="modalContent"></div>
   </div>
-
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.js"></script>
   <script src="./assets/js/script.js"></script>
-  
+
+</body>
+<div class="ui huge menu">
+  <a class="item" id="italian">Italian</a>
+  <a class="item" id="mexican">Mexican</a>
+  <a class="item" id="indian">Indian</a>
+  <a class="item" id="japanese">Japanese</a>
+</div>
+<div class="ui cards" id="recipeCards"></div>
+<div class="ui segment">
+  <h2 class="ui header">Weekly Meal Planner</h2>
+  <div id="calendar" class="ui grid">
+  </div>
+</div>
+<div class="two ui buttons">
+  <button class="ui large button" id="foodBtn">Get Food of the Day</button>
+  <button class="ui large button" id="factBtn">Get Joke of the Day</button>
+</div>
+</div>
+<div class="ui modal" id="modal">
+  <i class="close icon"></i>
+  <div class="header" id="modalHeader"></div>
+  <div class="content" id="modalContent"></div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.js"></script>
+<script src="./assets/js/script.js"></script>
 </body>
 
 </html>

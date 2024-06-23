@@ -1,0 +1,17 @@
+body {
+    background-color: rgb(255, 255, 255);
+}
+.header-cell {
+    padding: 2em;
+    background-color: rgb(0, 0, 0);
+    color: aliceblue;
+}
+#jad {
+    font-family: Pacifico;
+}
+.menu {
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+}
