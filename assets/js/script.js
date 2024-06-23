@@ -8,4 +8,28 @@ async function fetchRecipes(cuisine) {
     const data = await response.json();
     return data.results;
   }
-  
+  function displayRecipes(recipes) {
+    const recipeCards = document.getElementById("recipeCards");
+    recipeCards.innerHTML = "";
+    recipes.forEach((recipe) => {
+      const card = document.createElement("div");
+      card.className = "ui card recipe-card";
+      card.innerHTML = `
+          <div class="image">
+              <img src="${recipe.image}" alt="${recipe.title}">
+          </div>
+          <div class="content">
+              <a class="header">${recipe.title}</a>
+          </div>
+          `;
+      card.addEventListener("click", () => addRecipeToCalendar(recipe));
+      recipeCards.appendChild(card);
+    });
+  }
+  document.querySelectorAll(".ui.menu .item").forEach((item) => {
+    item.addEventListener("click", async (event) => {
+      const cuisine = event.target.id;
+      const recipes = await fetchRecipes(cuisine);
+      displayRecipes(recipes);
+    });
+  });
