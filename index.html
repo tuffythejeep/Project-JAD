@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foodie by JAD</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Foodie by JAD</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.css">
-
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
-
 <body>
   <div class="ui container">
     <div class="header-cell">
@@ -29,6 +25,7 @@
     <div class="ui segment">
       <h2 class="ui header">Weekly Meal Planner</h2>
       <div id="calendar" class="ui equal width grid">
+        <!-- Calendar content will be dynamically generated -->
       </div>
     </div>
     <div class="two ui buttons">
@@ -51,9 +48,23 @@
     </div>
   </div>
 
+  <div class="ui container">
+    <h1 class="ui header">API Humor</h1>
+    <div id="jokes-container" class="ui divided items">
+      <!-- Jokes will be displayed here -->
+    </div>
+  </div>
+
+  <div class="ui modal">
+    <div class="header" id="modalHeader">Food of the Day</div>
+    <i class="close icon"></i>
+    <div class="content" id="modalContent">
+
+    </div>
+  </div>
+
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.js"></script>
   <script src="./assets/js/script.js"></script>
 </body>
-
 </html>

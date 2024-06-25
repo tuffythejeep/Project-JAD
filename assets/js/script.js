@@ -80,4 +80,42 @@ function addRecipeToCalendar(recipe) {
   // alert("Invalid day. Please try again.");
   //}
 }
+document.getElementById("foodBtn").addEventListener("click", async () => {
+  try {
+    const response = await fetch(
+      `https://api.spoonacular.com/recipes/random?number=1&apiKey=${apiKey}`
+    );
+    const data = await response.json();
 
+    console.log(data);
+
+    if (data.recipes && data.recipes.length > 0) {
+      const { title, image, instructions } = data.recipes[0];
+      console.log(title, image, instructions);
+
+      const card = document.createElement("div");
+      card.className = "ui card";
+      card.innerHTML = `
+        <div class="image">
+          <img src="${image}" alt="${title}" style="max-width: 100%; height: auto;">
+        </div>
+        <div class="content">
+          <div class="header">${title}</div>
+          <div class="description">
+            <p>${instructions}</p>
+          </div>
+        </div>
+      `;
+
+      const modalContent = document.getElementById("modalContent");
+      modalContent.innerHTML = "";
+      modalContent.appendChild(card);
+
+      $(".ui.modal").modal("show");
+    } else {
+      console.error("No recipes found in the response.");
+    }
+  } catch (error) {
+    console.error("Error fetching food of the day:", error);
+  }
+});
