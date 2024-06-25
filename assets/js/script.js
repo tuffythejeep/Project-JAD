@@ -52,32 +52,66 @@ daysOfWeek.forEach((day) => {
   calendar.appendChild(dayColumn);
 });
 
-// Function to add recipe to calendar
 function addRecipeToCalendar(recipe) {
   $('.ui.modal')
-    .modal('show')
-    ;
-  sundayButton = document.getElementById("sunday-btn")
-  sundayButton.addEventListener("click", function () {
-    const recipeDiv = document.createElement("div");
-    recipeDiv.className = "recipe";
-    recipeDiv.innerText = recipe.title;
-    dayColumn.querySelector(".recipes").appendChild(recipeDiv);
-  })
-
-  //const selectedDay = prompt(
-  //  "Enter the day (e.g., Monday) to add this recipe:"
-  //);
-  //if (daysOfWeek.includes(selectedDay)) {
-  //  const dayColumn = Array.from(calendar.children).find(
-  //    (day) => day.querySelector("h3").innerText === selectedDay
-  // );
-  // const recipeDiv = document.createElement("div");
-  //  recipeDiv.className = "recipe";
-  //  recipeDiv.innerText = recipe.title;
-  //  dayColumn.querySelector(".recipes").appendChild(recipeDiv);
-  //} else {
-  // alert("Invalid day. Please try again.");
-  //}
+    .modal('show');
+  const dayButtons = document.querySelectorAll(".ui.modal .content button");
+  dayButtons.forEach(button => {
+    button.addEventListener("click", function () {
+      const selectedDay = button.textContent.trim();
+      // Find the corresponding day column in the calendar
+      const dayColumn = Array.from(document.getElementById("calendar").children)
+        .find(column => column.querySelector("h3").textContent.trim() === selectedDay);
+      if (dayColumn) {
+        const recipeDiv = document.createElement("div");
+        recipeDiv.className = "recipe";
+        recipeDiv.innerText = recipe.title;
+        dayColumn.querySelector(".recipes").appendChild(recipeDiv);
+      } else {
+        console.error("Day column not found for", selectedDay);
+      }
+      // Close the modal after adding the recipe
+      $('.ui.modal').modal('hide');
+    });
+  });
 }
 
+document.getElementById("foodBtn").addEventListener("click", async () => {
+    try {
+      const response = await fetch(
+        `https://api.spoonacular.com/recipes/random?number=1&apiKey=${apiKey}`
+      );
+      const data = await response.json();
+
+      console.log(data);
+
+      if (data.recipes && data.recipes.length > 0) {
+        const { title, image, instructions } = data.recipes[0];
+        console.log(title, image, instructions);
+
+        const card = document.createElement("div");
+        card.className = "ui card";
+        card.innerHTML = `
+        <div class="image">
+          <img src="${image}" alt="${title}" style="max-width: 100%; height: auto;">
+        </div>
+        <div class="content">
+          <div class="header">${title}</div>
+          <div class="description">
+            <p>${instructions}</p>
+          </div>
+        </div>
+      `;
+
+        const modalContent = document.getElementById("modalContent");
+        modalContent.innerHTML = "";
+        modalContent.appendChild(card);
+
+        $(".ui.modal").modal("show");
+      } else {
+        console.error("No recipes found in the response.");
+      }
+    } catch (error) {
+      console.error("Error fetching food of the day:", error);
+    }
+  });
