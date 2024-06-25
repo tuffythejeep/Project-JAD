@@ -52,33 +52,31 @@ daysOfWeek.forEach((day) => {
   calendar.appendChild(dayColumn);
 });
 
-// Function to add recipe to calendar
 function addRecipeToCalendar(recipe) {
   $('.ui.modal')
-    .modal('show')
-    ;
-  sundayButton = document.getElementById("sunday-btn")
-  sundayButton.addEventListener("click", function () {
-    const recipeDiv = document.createElement("div");
-    recipeDiv.className = "recipe";
-    recipeDiv.innerText = recipe.title;
-    dayColumn.querySelector(".recipes").appendChild(recipeDiv);
-  })
+    .modal('show');
 
-  //const selectedDay = prompt(
-  //  "Enter the day (e.g., Monday) to add this recipe:"
-  //);
-  //if (daysOfWeek.includes(selectedDay)) {
-  //  const dayColumn = Array.from(calendar.children).find(
-  //    (day) => day.querySelector("h3").innerText === selectedDay
-  // );
-  // const recipeDiv = document.createElement("div");
-  //  recipeDiv.className = "recipe";
-  //  recipeDiv.innerText = recipe.title;
-  //  dayColumn.querySelector(".recipes").appendChild(recipeDiv);
-  //} else {
-  // alert("Invalid day. Please try again.");
-  //}
+  const dayButtons = document.querySelectorAll(".ui.modal .content button");
+  dayButtons.forEach(button => {
+    button.addEventListener("click", function () {
+      const selectedDay = button.textContent.trim();
+
+      const dayColumn = Array.from(document.getElementById("calendar").children)
+        .find(column => column.querySelector("h3").textContent.trim() === selectedDay);
+
+      if (dayColumn) {
+        const recipeDiv = document.createElement("div");
+        recipeDiv.className = "recipe";
+        recipeDiv.innerText = recipe.title;
+        dayColumn.querySelector(".recipes").appendChild(recipeDiv);
+      } else {
+        console.error("Day column not found for", selectedDay);
+      }
+
+      
+      $('.ui.modal').modal('hide');
+    });
+  });
 }
 document.getElementById("foodBtn").addEventListener("click", async () => {
   try {
