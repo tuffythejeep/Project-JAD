@@ -74,6 +74,10 @@ https://github.com/tuffythejeep/Project-JAD
 
 NEED IMAGE
 
+## Here is a link to the Project Presentation Google Sheet
+
+https://docs.google.com/presentation/d/1-fl1Eqgt1aCP4yO9meXzznYJ6Lj2EpyBkb_mc9rtARM/edit?usp=sharing
+
 ## Installation
 N/A
 
@@ -95,7 +99,7 @@ https://google.com/
 
 https://bing.com/
 
-We also used these sites for code and other material, like data requests and responses, data retrieval, styling, and other things:
+We also used these sites for code and other material, like data requests and responses, data retrieval, styling, and other things like pictures:
 
 https://api.spoonacular.com/recipes
 
@@ -104,6 +108,8 @@ https://humorapi.com/jokes/
 https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/
 
 https://semantic-ui.com/
+
+https://pexels.com
 
 Our Team referenced code (HTML and CSS) from the UT provided lessons, however, we wrote all changes, edits, tweaks, and versions of the webpage, html, styles, and scripts.
 
