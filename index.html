@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,11 +11,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
+
 <body>
-  <div class="ui container">
+  <header>
     <div class="header-cell">
       <h1 class="header">Foodie by <span id="jad">JAD</span></h1>
     </div>
+  </header>
+
+  <div class="ui container" id="meal-planner">
     <div class="ui huge menu">
       <a class="item" id="italian">Italian</a>
       <a class="item" id="mexican">Mexican</a>
@@ -25,7 +30,7 @@
     <div class="ui segment">
       <h2 class="ui header">Weekly Meal Planner</h2>
       <div id="calendar" class="ui equal width grid">
-       
+
       </div>
     </div>
     <div class="one ui button">
@@ -47,26 +52,27 @@
     </div>
   </div>
 
-  <div class="container">
+  <div class="ui container">
     <header>
-        <h1>Joke Generator</h1>
+      <h1>Joke Generator</h1>
     </header>
 
-        <div class="joke-container">
-            <p class="joke" id="jokeText">Press the button for a joke!</p>
-            <button id="getJokeBtn">Get Joke</button>
-        </div>
-   
-        <div class="ui modal">
-    <div class="header" id="modalHeader">Food of the Day</div>
-    <i class="close icon"></i>
-    <div class="content" id="modalContent">
-
+    <div class="ui joke-container">
+      <button id="getJokeBtn" class="ui large button">Get Joke</button>
+      <div>      
+        <p class="joke" id="jokeText">Press the button for a joke!</p>
+      </div>
     </div>
-  </div>
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.js"></script>
-  <script src="./assets/js/script.js"></script>
+    <div class="ui modal">
+      <div class="header" id="modalHeader">Food of the Day</div>
+      <i class="close icon"></i>
+      <div class="content" id="modalContent"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
+
 </html>
