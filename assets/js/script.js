@@ -128,7 +128,7 @@ const jokeText = document.getElementById("jokeText");
 getJokeBtn.addEventListener("click", getFoodJoke);
 
 function getFoodJoke() {
-  fetch("https://v2.jokeapi.dev/joke/Programming?type=single")
+  fetch("https://v2.jokeapi.dev/joke/Pun?type=single")
     .then((response) => response.json())
     .then((data) => {
       if (data.error) {
