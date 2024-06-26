@@ -1,13 +1,14 @@
-const apiKey = "8f77ba1c7ff7478ebe5563282099b654";
-const apiBase = "https://api.spoonacular.com/recipes";
+const spoonacularApiKey = "8f77ba1c7ff7478ebe5563282099b654";
+const spoonacularApiBase = "https://api.spoonacular.com/recipes";
 
 async function fetchRecipes(cuisine) {
   const response = await fetch(
-    `${apiBase}/complexSearch?cuisine=${cuisine}&apiKey=${apiKey}`
+    `${spoonacularApiBase}/complexSearch?cuisine=${cuisine}&apiKey=${spoonacularApiKey}`
   );
   const data = await response.json();
   return data.results;
 }
+
 function displayRecipes(recipes) {
   const recipeCards = document.getElementById("recipeCards");
   recipeCards.innerHTML = "";
@@ -15,17 +16,18 @@ function displayRecipes(recipes) {
     const card = document.createElement("div");
     card.className = "ui card recipe-card";
     card.innerHTML = `
-          <div class="image">
-              <img src="${recipe.image}" alt="${recipe.title}">
-          </div>
-          <div class="content">
-              <a class="header">${recipe.title}</a>
-          </div>
-          `;
+      <div class="image">
+        <img src="${recipe.image}" alt="${recipe.title}">
+      </div>
+      <div class="content">
+        <a class="header">${recipe.title}</a>
+      </div>
+    `;
     card.addEventListener("click", () => addRecipeToCalendar(recipe));
     recipeCards.appendChild(card);
   });
 }
+
 document.querySelectorAll(".ui.menu .item").forEach((item) => {
   item.addEventListener("click", async (event) => {
     const cuisine = event.target.id;
@@ -43,8 +45,8 @@ const daysOfWeek = [
   "Saturday",
   "Sunday",
 ];
-const calendar = document.getElementById("calendar");
 
+const calendar = document.getElementById("calendar");
 daysOfWeek.forEach((day) => {
   const dayColumn = document.createElement("div");
   dayColumn.className = "column";
@@ -53,16 +55,19 @@ daysOfWeek.forEach((day) => {
 });
 
 function addRecipeToCalendar(recipe) {
-  $('.ui.modal')
-    .modal('show');
+  $(".ui.modal").modal("show");
 
   const dayButtons = document.querySelectorAll(".ui.modal .content button");
-  dayButtons.forEach(button => {
+  dayButtons.forEach((button) => {
     button.addEventListener("click", function () {
       const selectedDay = button.textContent.trim();
 
-      const dayColumn = Array.from(document.getElementById("calendar").children)
-        .find(column => column.querySelector("h3").textContent.trim() === selectedDay);
+      const dayColumn = Array.from(
+        document.getElementById("calendar").children
+      ).find(
+        (column) =>
+          column.querySelector("h3").textContent.trim() === selectedDay
+      );
 
       if (dayColumn) {
         const recipeDiv = document.createElement("div");
@@ -73,15 +78,15 @@ function addRecipeToCalendar(recipe) {
         console.error("Day column not found for", selectedDay);
       }
 
-      
-      $('.ui.modal').modal('hide');
+      $(".ui.modal").modal("hide");
     });
   });
 }
+
 document.getElementById("foodBtn").addEventListener("click", async () => {
   try {
     const response = await fetch(
-      `https://api.spoonacular.com/recipes/random?number=1&apiKey=${apiKey}`
+      `${spoonacularApiBase}/random?number=1&apiKey=${spoonacularApiKey}`
     );
     const data = await response.json();
 
@@ -89,7 +94,6 @@ document.getElementById("foodBtn").addEventListener("click", async () => {
 
     if (data.recipes && data.recipes.length > 0) {
       const { title, image, instructions } = data.recipes[0];
-      console.log(title, image, instructions);
 
       const card = document.createElement("div");
       card.className = "ui card";
@@ -100,7 +104,7 @@ document.getElementById("foodBtn").addEventListener("click", async () => {
         <div class="content">
           <div class="header">${title}</div>
           <div class="description">
-            <p>${instructions}</p>
+            <div>${instructions}</div>
           </div>
         </div>
       `;
@@ -117,3 +121,24 @@ document.getElementById("foodBtn").addEventListener("click", async () => {
     console.error("Error fetching food of the day:", error);
   }
 });
+
+const getJokeBtn = document.getElementById("getJokeBtn");
+const jokeText = document.getElementById("jokeText");
+
+getJokeBtn.addEventListener("click", getFoodJoke);
+
+function getFoodJoke() {
+  fetch("https://v2.jokeapi.dev/joke/Programming?type=single")
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.error) {
+        jokeText.textContent = "Oops! No food jokes available right now.";
+      } else {
+        jokeText.textContent = data.joke;
+      }
+    })
+    .catch((error) => {
+      jokeText.textContent = "Oops! Something went wrong.";
+      console.error("Error fetching joke:", error);
+    });
+}
