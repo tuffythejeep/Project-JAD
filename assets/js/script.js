@@ -55,8 +55,7 @@ const daysOfWeek = [
 ];
 
 const calendar = document.getElementById("calendar");
-const calendarData = {};
-
+let calendarData = {}; // Change const to let to make calendarData mutable
 
 function initializeCalendar() {
   daysOfWeek.forEach((day) => {
@@ -66,6 +65,35 @@ function initializeCalendar() {
     dayColumn.innerHTML = `<h3>${day}</h3><div class="recipes"></div>`;
     calendar.appendChild(dayColumn);
   });
+  
+  // Load existing data from localStorage
+  loadCalendarData();
+}
+
+function loadCalendarData() {
+  const storedData = localStorage.getItem("calendarData");
+  if (storedData) {
+    calendarData = JSON.parse(storedData);
+    
+    // Update the calendar display with stored data
+    daysOfWeek.forEach((day) => {
+      const dayColumn = Array.from(calendar.children).find(
+        (column) => column.querySelector("h3").textContent.trim() === day
+      );
+      if (dayColumn) {
+        const recipes = calendarData[day];
+        const recipesContainer = dayColumn.querySelector(".recipes");
+        recipesContainer.innerHTML = ""; // Clear existing recipes
+        
+        recipes.forEach((recipeTitle) => {
+          const recipeDiv = document.createElement("div");
+          recipeDiv.className = "recipe";
+          recipeDiv.innerText = recipeTitle;
+          recipesContainer.appendChild(recipeDiv);
+        });
+      }
+    });
+  }
 }
 initializeCalendar();
 
