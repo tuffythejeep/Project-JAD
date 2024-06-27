@@ -57,7 +57,7 @@ const daysOfWeek = [
 const calendar = document.getElementById("calendar");
 const calendarData = {};
 
-// Function to initialize calendar days
+
 function initializeCalendar() {
   daysOfWeek.forEach((day) => {
     calendarData[day] = [];
@@ -67,8 +67,6 @@ function initializeCalendar() {
     calendar.appendChild(dayColumn);
   });
 }
-
-// Call the initialization function
 initializeCalendar();
 
 function addRecipeToCalendar(recipe, card) {
@@ -90,16 +88,13 @@ function addRecipeToCalendar(recipe, card) {
     recipeDiv.innerText = recipe.title;
     dayColumn.querySelector(".recipes").appendChild(recipeDiv);
 
-    // Update calendarData
     if (!calendarData[selectedDay]) {
       calendarData[selectedDay] = [];
     }
 
-    // Check if recipe already exists in the selected day
     if (!calendarData[selectedDay].includes(recipe.title)) {
       calendarData[selectedDay].push(recipe.title);
 
-      // Save the updated calendar data in local storage
       localStorage.setItem("calendarData", JSON.stringify(calendarData));
     } else {
       console.log("Recipe already exists in", selectedDay);
