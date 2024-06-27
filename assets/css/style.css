@@ -24,3 +24,45 @@ body {
 #meal-planner{
     margin-top: 5px;
 }
+#calendar {
+    display: flex;
+    justify-content: space-around; 
+    margin-top: 20px; 
+  }
+
+
+  .column {
+    flex: 1; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin: 0 5px; 
+  }
+
+
+  .recipes {
+    margin-top: 10px; 
+  }
+  
+  .ui.card {
+    width: 300px; 
+    margin-bottom: 20px; 
+  }
+
+
+  .ui.form .field {
+    margin-bottom: 10px; 
+  }
+
+
+  .ui.form select {
+    width: 100%; 
+    padding: 8px;
+    font-size: 14px; 
+  }
+  
+  .ui.card:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
