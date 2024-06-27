@@ -26,44 +26,42 @@ body {
 }
 #calendar {
     display: flex;
-    justify-content: space-around; /* Adjust as needed */
-    margin-top: 20px; /* Adjust margin top as per your design */
+    justify-content: space-around; 
+    margin-top: 20px; 
   }
-  
-  /* Style for each day column */
+
+
   .column {
-    flex: 1; /* Each column takes equal space */
+    flex: 1; 
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
-    margin: 0 5px; /* Adjust horizontal margin between columns */
+    margin: 0 5px; 
   }
-  
-  /* Style for the recipes within each day column */
+
+
   .recipes {
-    margin-top: 10px; /* Adjust top margin for recipes */
+    margin-top: 10px; 
   }
   
-  /* Style for recipe cards */
   .ui.card {
-    width: 300px; /* Adjust card width as needed */
-    margin-bottom: 20px; /* Adjust bottom margin between recipe cards */
+    width: 300px; 
+    margin-bottom: 20px; 
   }
-  
-  /* Style for dropdowns within recipe cards */
+
+
   .ui.form .field {
-    margin-bottom: 10px; /* Adjust bottom margin for dropdown field */
+    margin-bottom: 10px; 
   }
-  
-  /* Optional: Additional styling for dropdowns */
+
+
   .ui.form select {
-    width: 100%; /* Ensure dropdowns expand to full width */
-    padding: 8px; /* Adjust padding as needed */
-    font-size: 14px; /* Adjust font size as needed */
+    width: 100%; 
+    padding: 8px;
+    font-size: 14px; 
   }
   
-  /* Optional: Hover effect for recipe cards */
   .ui.card:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
