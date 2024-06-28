@@ -210,6 +210,51 @@ document.getElementById("foodBtn").addEventListener("click", async () => {
     console.error("Error fetching food of the day:", error);
   }
 });
+const nutritionApiBase = "https://api.edamam.com/api/nutrition-details";
+const nutritionApiKey = "f1afd94dda4afaf196695a5a9eed86ad";
+
+async function fetchNutritionDetails(input) {
+  try {
+    const response = await fetch(`${nutritionApiBase}?app_id=7dca7379&app_key=${nutritionApiKey}&beta=true&force=true`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        ingr: [input]  
+      })
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching nutrition details:', error);
+    return null;
+  }
+}
+function displayNutritionDetails(nutrition) {
+  const nutritionDetails = document.getElementById("nutritionDetails");
+  console.log(nutrition);
+  nutritionDetails.innerHTML = `
+    <h3>Nutrition Details</h3>
+    <p>Calories: ${nutrition.calories}</p>
+    <p>Protein: ${nutrition.totalNutrients.PROCNT.quantity}g</p>
+    <p>Fat: ${nutrition.totalNutrients.FAT.quantity}g</p>
+    <p>Carbohydrates: ${nutrition.totalNutrients.CHOCDF.quantity}g</p>
+  `;
+}
+document.getElementById("analyzeBtn").addEventListener("click", async () => {
+  const recipeInput = document.getElementById("recipeInput").value.trim();
+  if (recipeInput) {
+    const nutrition = await fetchNutritionDetails(recipeInput);
+    if (nutrition) {
+      displayNutritionDetails(nutrition);
+    } else {
+      alert('Failed to fetch nutrition details. Please try again.');
+    }
+  } else {
+    alert('Please enter a recipe URL or text.');
+  }
+});
 
 const getJokeBtn = document.getElementById("getJokeBtn");
 const jokeText = document.getElementById("jokeText");
