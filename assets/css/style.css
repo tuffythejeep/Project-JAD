@@ -4,6 +4,7 @@
 
 body {
   margin: 0;
+  background-color: #00FDC8;
 }
 
 .header-cell {
@@ -14,11 +15,7 @@ body {
 
 #jad {
   font-family: Pacifico;
-}
-
-.buttons {
-  display: flex;
-  justify-content: center;
+  color: aquamarine;
 }
 
 .day-boxes {
@@ -39,7 +36,7 @@ body {
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f9f9f9;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 #joke-generator {
@@ -60,9 +57,17 @@ footer {
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f9f9f9;
-  margin: 0 5px;
+  margin: 5px;
 }
 
+#nutrition-container{
+  margin: auto;
+}
+
+#nutrition-search{
+  display: inline-flex;
+  justify-content: center;
+}
 
 .recipes {
   margin-top: 10px;
@@ -73,11 +78,9 @@ footer {
   margin-bottom: 20px;
 }
 
-
 .ui.form .field {
   margin-bottom: 10px;
 }
-
 
 .ui.form select {
   width: 100%;
@@ -103,6 +106,17 @@ footer {
   text-align: center;
 }
 
+.nutrition-container{
+  display: inline;
+}
+
+#bottom-section{
+  align-items: center;
+}
+
+#nutritionDetails{
+  text-align: center;
+}
 @media screen and (max-width: 992px) {
   header {}
 }

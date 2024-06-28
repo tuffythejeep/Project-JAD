@@ -3,7 +3,7 @@ const spoonacularApiBase = "https://api.spoonacular.com/recipes";
 
 async function fetchRecipes(cuisine) {
   const response = await fetch(
-    `${spoonacularApiBase}/complexSearch?cuisine=${cuisine}&apiKey=${spoonacularApiKey}`
+    `${spoonacularApiBase}/complexSearch?cuisine=${cuisine}&number=9&sort=random&apiKey=${spoonacularApiKey}`
   );
   const data = await response.json();
   return data.results;
