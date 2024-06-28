@@ -26,45 +26,44 @@
       <a class="item" id="indian">Indian</a>
       <a class="item" id="japanese">Japanese</a>
     </div>
-    <div id="recipeCards" class="ui cards">
-    </div>
+    <div id="recipeCards" class="ui cards"></div>
 
     <div class="ui segment">
       <h2 class="ui header">Weekly Meal Planner</h2>
-      <div id="calendar" class="ui grid">
-      </div>
+      <div id="calendar" class="ui stackable grid"></div>
     </div>
-    <div class="one ui button">
-      <button class="ui large button" id="foodBtn">Get Food of the Day</button>
+
+    <div class="one ui">
+      <button class="ui massive button" id="foodBtn">Get Food of the Day</button>
     </div>
   </div>
 
-    <header>
-      <h1>Joke Generator</h1>
-    </header>
-
-    <div class="ui joke-container">
-      <button id="getJokeBtn" class="ui large button">Get Joke</button>
-      <div>
-        <p class="joke" id="jokeText">Press the button for a joke!</p>
-      </div>
-    </div>
-
-    <div class="ui modal">
-      <div class="header" id="modalHeader">Food of the Day</div>
-      <i class="close icon"></i>
-      <div class="content" id="modalContent"></div>
-    </div>
-    <div id="nutritionDetails"></div>
+  <div class="ui modal">
+    <div class="header" id="modalHeader">Food of the Day</div>
+    <i class="close icon"></i>
+    <div class="content" id="modalContent"></div>
+  </div>
+  
+  <div id="nutritionDetails"></div>
 
     <div class="bottom-section">
       <input type="text" id="recipeInput" placeholder="Enter recipe URL or text" style="width: 100%; padding: 10px;">
       <button id="analyzeBtn" style="width: 100%;">Analyze Nutrition</button>
     </div>
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.js"></script>
-    <script src="./assets/js/script.js"></script>
+
+  <footer class="ui container" id="joke-container">
+    <div class="joke-div ">
+      <p class="joke" id="jokeText"></p>
+    </div>
+    <div class="" id="joke-generator">
+      <h1 id="joke-title">Joke Generator</h1>
+      <button id="getJokeBtn" class="ui large button">Get Joke</button>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.js"></script>
+  <script src="./assets/js/script.js"></script>
 </body>
 
 </html>

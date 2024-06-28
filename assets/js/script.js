@@ -61,7 +61,7 @@ function initializeCalendar() {
   daysOfWeek.forEach((day) => {
     calendarData[day] = [];
     const dayColumn = document.createElement("div");
-    dayColumn.className = "column";
+    dayColumn.className = "column day-boxes";
     dayColumn.innerHTML = `<h3>${day}</h3><div class="recipes"></div>`;
     calendar.appendChild(dayColumn);
   });

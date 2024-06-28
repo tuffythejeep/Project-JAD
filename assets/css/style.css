@@ -1,90 +1,117 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-    background-color: rgb(255, 255, 255);
+  margin: 0;
 }
+
 .header-cell {
-    padding: 2em;
-    background-color: rgb(0, 0, 0);
-    color: aliceblue;
+  padding: 2em;
+  background-color: rgb(0, 0, 0);
+  color: aliceblue;
 }
+
 #jad {
-    font-family: Pacifico;
+  font-family: Pacifico;
 }
 
 .buttons {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+}
+
+.day-boxes {
+  border: 1px solid rgb(215, 213, 213);
+  border-radius: 5px;
+}
+
+#meal-planner {
+  margin-top: 5px;
+}
+
+#calendar {
+  margin-top: 20px;
+}
+
+#joke-container {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  margin-top: 5px;
+}
+
+#joke-generator {
+  display: flex;
+  justify-content: center;
+}
+
+footer {
+  font-size: small;
+  text-align: center;
+  background-color: black;
+  clear: both;
 }
 
 .column {
-    border: 1px solid rgb(215, 213, 213);
-    border-radius: 5px;
-
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  margin: 0 5px;
 }
 
-#meal-planner{
-    margin-top: 5px;
+
+.recipes {
+  margin-top: 10px;
 }
-#calendar {
-    display: flex;
-    justify-content: space-around; 
-    margin-top: 20px; 
-  }
+
+.ui.card {
+  width: 300px;
+  margin-bottom: 20px;
+}
 
 
-  .column {
-    flex: 1; 
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    margin: 0 5px; 
-  }
+.ui.form .field {
+  margin-bottom: 10px;
+}
 
 
-  .recipes {
-    margin-top: 10px; 
-  }
-  
-  .ui.card {
-    width: 300px; 
-    margin-bottom: 20px; 
-  }
+.ui.form select {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.ui.card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.joke-div {
+  margin: 5px;
+}
+
+#joke-title {
+  margin: 5px;
+}
+
+.joke {
+  font-size: x-large;
+  text-align: center;
+}
+
+@media screen and (max-width: 992px) {
+  header {}
+}
+
+@media screen and (max-width: 768px) {
+  nav {}
+}
 
 
-  .ui.form .field {
-    margin-bottom: 10px; 
-  }
-
-
-  .ui.form select {
-    width: 100%; 
-    padding: 8px;
-    font-size: 14px; 
-  }
-
-  .ui.card:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
-  }
-  
-.bottom-section {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    padding: 10px;
-    background-color: #f0f0f0;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  #recipeInput {
-    width: calc(100% - 80px); 
-    padding: 10px;
-    margin-right: 10px;
-  }
-  
-  #analyzeBtn {
-    width: 80px; 
-    padding: 10px;
-    cursor: pointer;
-  }
-  
+@media screen and (max-width: 576px) {
+  .column {}
+}
