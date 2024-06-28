@@ -33,6 +33,20 @@
       <div id="calendar" class="ui stackable grid"></div>
     </div>
 
+    
+    <div class="ui segment">
+      <div class="ui container grid" id="nutrition-container">
+        <div class="column ui form" id="nutrition-search">
+          <div class="field">
+            <h4>Nutrition Detail</h4>
+            <input type="text" id="recipeInput" placeholder="E.g. (1 cup of sugar, 1  tbsp of butter)">
+            <button class="ui button" id="analyzeBtn">Analyze Nutrition</button>
+          </div>
+        </div>
+        <div class ="column" id="nutritionDetails"></div>
+      </div>
+    </div>
+    
     <div class="one ui">
       <button class="ui massive button" id="foodBtn">Get Food of the Day</button>
     </div>
@@ -43,13 +57,7 @@
     <i class="close icon"></i>
     <div class="content" id="modalContent"></div>
   </div>
-  
-  <div id="nutritionDetails"></div>
 
-    <div class="bottom-section">
-      <input type="text" id="recipeInput" placeholder="Enter recipe URL or text" style="width: 100%; padding: 10px;">
-      <button id="analyzeBtn" style="width: 100%;">Analyze Nutrition</button>
-    </div>
 
   <footer class="ui container" id="joke-container">
     <div class="joke-div ">
