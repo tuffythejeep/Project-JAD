@@ -72,7 +72,8 @@ https://github.com/tuffythejeep/Project-JAD
 
 ## Here is a picture of our deployed page:
 
-NEED IMAGE
+![image](https://github.com/tuffythejeep/Project-JAD/assets/167649421/4c76b972-6d2f-4e6b-8d01-d12f9ce37d05)
+
 
 ## Here is a link to the Project Presentation Google Sheet
 
@@ -104,6 +105,8 @@ We also used these sites for code and other material, like data requests and res
 https://api.spoonacular.com/recipes
 
 https://humorapi.com/jokes/
+
+https://v2.jokeapi.dev/joke/Pun?type=single
 
 https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/
 
