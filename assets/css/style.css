@@ -61,8 +61,30 @@ body {
     padding: 8px;
     font-size: 14px; 
   }
-  
+
   .ui.card:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
   }
+  
+.bottom-section {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: #f0f0f0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  #recipeInput {
+    width: calc(100% - 80px); 
+    padding: 10px;
+    margin-right: 10px;
+  }
+  
+  #analyzeBtn {
+    width: 80px; 
+    padding: 10px;
+    cursor: pointer;
+  }
+  

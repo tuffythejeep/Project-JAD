@@ -55,7 +55,7 @@ const daysOfWeek = [
 ];
 
 const calendar = document.getElementById("calendar");
-let calendarData = {}; 
+let calendarData = {};
 
 function initializeCalendar() {
   daysOfWeek.forEach((day) => {
@@ -65,7 +65,7 @@ function initializeCalendar() {
     dayColumn.innerHTML = `<h3>${day}</h3><div class="recipes"></div>`;
     calendar.appendChild(dayColumn);
   });
-  
+
   loadCalendarData();
 }
 
@@ -73,8 +73,8 @@ function loadCalendarData() {
   const storedData = localStorage.getItem("calendarData");
   if (storedData) {
     calendarData = JSON.parse(storedData);
-    
-   
+
+
     daysOfWeek.forEach((day) => {
       const dayColumn = Array.from(calendar.children).find(
         (column) => column.querySelector("h3").textContent.trim() === day
@@ -82,8 +82,8 @@ function loadCalendarData() {
       if (dayColumn) {
         const recipes = calendarData[day];
         const recipesContainer = dayColumn.querySelector(".recipes");
-        recipesContainer.innerHTML = ""; 
-        
+        recipesContainer.innerHTML = "";
+
         recipes.forEach((recipeTitle) => {
           const recipeDiv = document.createElement("div");
           recipeDiv.className = "recipe";
@@ -208,6 +208,51 @@ document.getElementById("foodBtn").addEventListener("click", async () => {
     }
   } catch (error) {
     console.error("Error fetching food of the day:", error);
+  }
+});
+const nutritionApiBase = "https://api.edamam.com/api/nutrition-details";
+const nutritionApiKey = "f1afd94dda4afaf196695a5a9eed86ad";
+
+async function fetchNutritionDetails(input) {
+  try {
+    const response = await fetch(`${nutritionApiBase}?app_id=7dca7379&app_key=${nutritionApiKey}&beta=true&force=true`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        ingr: [input]  
+      })
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching nutrition details:', error);
+    return null;
+  }
+}
+function displayNutritionDetails(nutrition) {
+  const nutritionDetails = document.getElementById("nutritionDetails");
+  console.log(nutrition);
+  nutritionDetails.innerHTML = `
+    <h3>Nutrition Details</h3>
+    <p>Calories: ${nutrition.calories}</p>
+    <p>Protein: ${nutrition.totalNutrients.PROCNT.quantity}g</p>
+    <p>Fat: ${nutrition.totalNutrients.FAT.quantity}g</p>
+    <p>Carbohydrates: ${nutrition.totalNutrients.CHOCDF.quantity}g</p>
+  `;
+}
+document.getElementById("analyzeBtn").addEventListener("click", async () => {
+  const recipeInput = document.getElementById("recipeInput").value.trim();
+  if (recipeInput) {
+    const nutrition = await fetchNutritionDetails(recipeInput);
+    if (nutrition) {
+      displayNutritionDetails(nutrition);
+    } else {
+      alert('Failed to fetch nutrition details. Please try again.');
+    }
+  } else {
+    alert('Please enter a recipe URL or text.');
   }
 });
 
